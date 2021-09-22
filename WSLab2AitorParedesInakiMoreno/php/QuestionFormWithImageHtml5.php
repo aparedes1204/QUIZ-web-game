@@ -32,7 +32,7 @@
 
       </form>
 
-      <img id="img-preview"/>
+      <img id="img-preview" height = "300"/>
 
     </div>
   </section>
