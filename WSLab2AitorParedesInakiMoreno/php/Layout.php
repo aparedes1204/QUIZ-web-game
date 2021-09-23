@@ -10,8 +10,6 @@
     <div>
 
       <h2>Quiz: galderen jokoa</h2>
-      <li> <a href = "./QuestionForm.php"> Irudirik gabeko galdera bat proposatu </a> </li>
-      <li> <a href = "./QuestionFormWithImage.php"> Irudia duen galdera bat proposatu </a> </li>
       
     </div>
   </section>
