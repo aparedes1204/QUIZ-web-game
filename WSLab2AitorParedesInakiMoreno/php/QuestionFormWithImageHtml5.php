@@ -10,7 +10,7 @@
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
-    <div>
+    <div id="form-with-image">
       <form id="galderenF" name="galderenF" action="AddQuestion.php">
 
         <p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40" pattern="^[a-zA-Z]+([0-9]{3}@ikasle\.ehu|(\.[a-zA-Z]+){0,1}[a-zA-Z]+@ehu)\.(eus|es)$" required></p>
@@ -31,8 +31,6 @@
         <input type="button" id="hustu" name="hustu" value="Hustu" onclick='resetForm()'>
 
       </form>
-
-      <img id="img-preview" height = "300"/>
 
     </div>
   </section>

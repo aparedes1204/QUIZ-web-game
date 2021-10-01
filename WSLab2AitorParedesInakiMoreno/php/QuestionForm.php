@@ -2,7 +2,7 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
-  <script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>
+  <!--<script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>-->
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="../js/ValidateFieldsQuestionJQ.js"></script>
 </head>
@@ -12,7 +12,7 @@
   <section class="main" id="s1">
     <div>
 	  
-		<form id="galderenF" name="galderenF" action="AddQuestion.php">
+		<form id="galderenF" method="post" name="galderenF" action="AddQuestion.php">
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
 			<p>Galdera(*): <input type="text" id="galdera" name="galdera" size="40"></p>

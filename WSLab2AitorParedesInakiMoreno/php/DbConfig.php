@@ -1,16 +1,17 @@
 <?php
-$lokal=1; //0 hodeirako
+$lokal=0; //0 hodeirako
 
 if ($lokal){
-	$zerbitzaria="localhost";
+        $zerbitzaria="localhost";
     $erabiltzailea="root";
-	$gakoa="";
+        $gakoa="";
     $db="quiz";
 }
 else{
     $zerbitzaria="localhost";
-    $erabiltzailea="";
-    $gakoa="";
-    $db="";
+    $erabiltzailea="T60";
+    $gakoa="KQrFOSVCQ6J9u";
+    $db="db_T60";
 }
 ?>
+

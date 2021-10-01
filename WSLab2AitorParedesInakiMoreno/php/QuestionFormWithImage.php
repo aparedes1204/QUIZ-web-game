@@ -4,8 +4,7 @@
 <head>
   <?php include '../html/Head.html' ?>
   <script type="text/javascript" src="../js/ShowImageInForm.js"></script>
-  <script type="text/javascript" src="../js/reset.js"></script>
-  <script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>
+  <!--script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>-->
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="../js/ValidateFieldsQuestionJQ.js"></script>
 
@@ -16,7 +15,7 @@
   <section class="main" id="s1">
     <div id="form-with-image" name="form-with-image">
 
-      <form id="galderenF" name="galderenF" action="AddQuestionWithImage.php">
+      <form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data" action="AddQuestionWithImage.php">
 
         <p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
         <p>Galdera(*): <input type="text" id="galdera" name="galdera" size="40"></p>
@@ -33,7 +32,7 @@
 
         <!--<input	type="submit" id="submit" name="submit" value="Bidali" onclick='return ValidateFieldsQuestionJS(eposta, galdera, e_zuzena, e_okerra1, e_okerra2, e_okerra3, zailtasuna, arloa)'>
   -->
-        <input type="file" id="choose-file" name="choose-file" accept="image/png, image/jpeg, image/jpg, image/jfifi" onchange="loadFile(event)">
+        <input type="file" id="choose-file" name="choose-file" accept="image/*" onchange="loadFile(event)">
         <input type="submit" id="submit" name="submit" value="Bidali">
         <input type="button" id="hustu" name="hustu" value="Hustu" onclick='resetForm()'>
 
@@ -41,7 +40,6 @@
 
       </form>
 
-      <img id="img-preview" height = "300"/>
     </div>
     
 
