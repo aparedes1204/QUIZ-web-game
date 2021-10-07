@@ -74,7 +74,7 @@
                 die('Pasahitzak ez dira berdinak');
             }
 
-            $emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = '$eposta'");
+            $emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = $eposta");
             
             if($emaitza){
                 die("Dagoeneko eposta horrekin erregistratutako erabiltzaile bat badago");
