@@ -1,6 +1,6 @@
 <div id='page-wrap'>
 <header class='main' id='h1'>
-  <span class="right"><a href="signup">Erregistratu</a></span>
+  <span class="right"><a href="SignUp.php">Erregistratu</a></span>
         <span class="right"><a href="login">Login</a></span>
         <span class="right" style="display:none;"><a href="/logout">Logout</a></span>
 </header>

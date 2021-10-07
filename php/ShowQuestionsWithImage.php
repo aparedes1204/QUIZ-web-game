@@ -10,12 +10,6 @@
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
-    <div>
-	
-	  DBeko galderak taula batean erakusteko PHP kodea <br/>
-      Taulak DBeko irudiak ditu
-	  
-    </div>
     <?php
 
         include 'DbConfig.php';
