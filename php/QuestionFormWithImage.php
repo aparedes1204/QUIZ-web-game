@@ -16,8 +16,10 @@
     <div id="form-with-image" name="form-with-image">
 
       <form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data" action="AddQuestionWithImage.php">
-
-        <p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
+        <?php
+          $eposta = $_GET['eposta'];
+          echo "<p>Eposta(*): <input type='text' id='eposta' name='eposta' value = '$eposta' readonly size='40'></p>";
+        ?>
         <p>Galdera(*): <input type="text" id="galdera" name="galdera" size="40"></p>
         <p>Erantzun zuzena(*): <input type="text" id="e_zuzena" name="e_zuzena" size="40"></p>
         <p>Erantzun okerra 1(*): <input type="text" id="e_okerra1" name="e_okerra1" size="40"></p>

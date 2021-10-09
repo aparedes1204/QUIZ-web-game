@@ -16,6 +16,7 @@
             <p>Deitura (*):<input type="text" id="deitura" name="deitura"><p>
             <p>Pasahitza (*):<input type="password" id="pasahitza" name="pasahitza"><p>
             <p>Pasahitza errepikatu (*):<input type="password" id="pasahitzaErrep" name="pasahitzaErrep"><p>
+            <p>Profil argazkia:<input type="file" id="choose-file" name="choose-file" accept="image/*" onchange="loadFile(event)">
             <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
             <input type="submit" id="submit" name="submit" value="Bidali">
         </form>
@@ -74,7 +75,7 @@
                 die('Pasahitzak ez dira berdinak');
             }
 
-            $emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = $eposta");
+            $emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = '{$eposta}'");
             
             if($emaitza){
                 die("Dagoeneko eposta horrekin erregistratutako erabiltzaile bat badago");
@@ -87,6 +88,7 @@
             }
 
             mysqli_close($esteka);
+            header("Location: ../php/Layout.php");
         }
     ?>
 

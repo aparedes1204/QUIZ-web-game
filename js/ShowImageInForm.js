@@ -1,4 +1,6 @@
 function loadFile(event) {
+    var elem = document.getElementById("img-preview")
+    elem.parentNode.removeChild(elem)
     var image = document.createElement("img")
     image.id='img-preview'
     image.style.display='inline'

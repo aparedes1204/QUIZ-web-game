@@ -59,6 +59,7 @@
       }
       //mysqli_free_result($emaitza);
       mysqli_close($esteka);
+      header("Location: Layout.php?eposta=".$eposta);
       ?>
 
     </div>
