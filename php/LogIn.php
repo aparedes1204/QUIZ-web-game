@@ -35,7 +35,7 @@
             }
 
             $emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = '{$eposta}'");
-            if(!$emaitza){
+            if($emaitza -> num_rows == 0){
                 die("Erabiltzaile okerra");
             }
 
