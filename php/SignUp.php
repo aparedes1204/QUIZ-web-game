@@ -16,7 +16,6 @@
             <p>Deitura (*):<input type="text" id="deitura" name="deitura"><p>
             <p>Pasahitza (*):<input type="password" id="pasahitza" name="pasahitza"><p>
             <p>Pasahitza errepikatu (*):<input type="password" id="pasahitzaErrep" name="pasahitzaErrep"><p>
-            <p>Profil argazkia:<input type="file" id="choose-file" name="choose-file" accept="image/*" onchange="loadFile(event)">
             <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
             <input type="submit" id="submit" name="submit" value="Bidali">
         </form>

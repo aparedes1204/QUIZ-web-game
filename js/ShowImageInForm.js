@@ -13,7 +13,9 @@ function loadFile(event) {
 
 function resetForm(){
     var elem = document.getElementById("img-preview")
+    if(elem!=null){
     elem.parentNode.removeChild(elem)
+    }
     document.getElementById("galderenF").reset()
     document.getElementById("choose-file").reset()
 };
