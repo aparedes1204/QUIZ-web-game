@@ -15,7 +15,7 @@
   <section class="main" id="s1">
     <div id="form-with-image" name="form-with-image">
 
-      <form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data" action="AddQuestionWithImage.php">
+      <form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data" action="AddQuestionWithImage.php?eposta=<?php echo $_GET['eposta']?>">
         <?php
           $eposta = $_GET['eposta'];
           echo "<p>Eposta(*): <input type='text' id='eposta' name='eposta' value = '$eposta' readonly size='40'></p>";
