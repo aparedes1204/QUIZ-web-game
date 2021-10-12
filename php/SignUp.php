@@ -10,15 +10,16 @@
     <div id = "sign-up" name = "sign-up">
         <h1>Erregistroa</h1>
 
-        <form id = "sign-up-form" name = "sign-up-form" method = "post" action="SignUp.php">
+        <form id = "sign-up-form" name = "sign-up-form" enctype = "multipart/form-data" method = "post" action="SignUp.php">
             <p>Erabiltzaile mota (*):<input type="text" id="erMota" name="erMota"><p>
             <p>Eposta (*):<input type="text" id="eposta" name="eposta"><p>
             <p>Deitura (*):<input type="text" id="deitura" name="deitura"><p>
             <p>Pasahitza (*):<input type="password" id="pasahitza" name="pasahitza"><p>
             <p>Pasahitza errepikatu (*):<input type="password" id="pasahitzaErrep" name="pasahitzaErrep"><p>
-            <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
+            <input type="file" id="irudia" name="irudia" accept="image/*" onchange="loadFile(event)">
+	    <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
             <input type="submit" id="submit" name="submit" value="Bidali">
-        </form>
+	</form>
 
 
     </div>
@@ -36,6 +37,8 @@
             $deitura = trim(preg_replace("/\s+/",' ',$_POST['deitura']));
             $pasahitza = $_POST['pasahitza'];
             $pasahitzaErrep = $_POST['pasahitzaErrep'];
+	    $image = $_FILES['irudia']['tmp_name'];
+      	    $blob = addslashes(file_get_contents($image));
             
             if ($erMota === "" || $eposta ==="" || $deitura === "" || $pasahitza === "" || $pasahitzaErrep === "") {
                 die ("Bete beharrezkoak (*) diren eremu guztiak");
@@ -80,7 +83,7 @@
                 die("Dagoeneko eposta horrekin erregistratutako erabiltzaile bat badago");
             }
 
-            $sartu = mysqli_query($esteka, "INSERT INTO Users(erMota, eposta, deitura, pasahitza) VALUES ('$erMota', '$eposta', '$deitura', '$pasahitza')");
+            $sartu = mysqli_query($esteka, "INSERT INTO Users(erMota, eposta, deitura, pasahitza, argazkia) VALUES ('$erMota', '$eposta', '$deitura', '$pasahitza', '{$blob}')");
 
             if (!$sartu){
                 die("Errorea erregistreratzerakoan");

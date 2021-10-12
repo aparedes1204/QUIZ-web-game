@@ -1,9 +1,17 @@
 <div id='page-wrap'>
 <header class='main' id='h1'>
   <?php
+      include 'DbConfig.php';
       if(isset($_GET['eposta'])){
         $eposta = $_GET['eposta'];
+	$link = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db)
+	or die("no link");
+	$ema = mysqli_query($link,"SELECT argazkia FROM Users WHERE Users.eposta = '{$eposta}'");
+	$row=mysqli_fetch_array($ema, MYSQLI_ASSOC);
         echo "Erabiltzailea: $eposta<p><span class='right'><a href='LogOut.php'>Logout</a></span>";
+	if($row['argazkia']!=NULL){
+        	echo '<td> <img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['argazkia']).'"/ height=100>';
+        }
       } else {
         echo "<span class='right'><a href='SignUp.php'>Erregistratu</a></span>
         <span class='right'><a href='LogIn.php'>Login</a></span>";
