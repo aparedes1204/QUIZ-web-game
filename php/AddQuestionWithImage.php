@@ -13,7 +13,8 @@
       $esteka = mysqli_connect($zerbitzaria,$erabiltzailea,$gakoa,$db)
         or die ("errorea DB-ra konektatzean");
       $image = $_FILES['choose-file']['tmp_name'];
-      $blob = addslashes(file_get_contents($image));
+      if($image)
+        $blob = addslashes(file_get_contents($image));
 
       $eposta = trim($_POST['eposta']);
       $galdera = trim($_POST['galdera']);
@@ -57,9 +58,53 @@
       if(!$emaitza){
         die("Errorea query-an");
       }
-      //mysqli_free_result($emaitza);
+      
       mysqli_close($esteka);
-      header("Location: Layout.php?eposta=".$eposta);
+
+      $xml = simplexml_load_file('../xml/Questions.xml');
+      sleep(2);
+      $galderaXml = $xml->addChild('assessmentItem');
+      $galderaXml -> addAttribute('author',$eposta);
+      $galderaXml -> addAttribute('subject',$arloa);
+      $body = $galderaXml -> addChild('itemBody');
+      $body -> addChild('p',$galdera);
+      $erantzunZuzena = $galderaXml -> addChild('correctResponse');
+      $erantzunZuzena -> addChild('response',$e_zuzena);
+      $erantzunOkerrak = $galderaXml->addChild('incorrectResponses');
+      $erantzunOkerrak -> addChild('response',$e_okerra1);
+      $erantzunOkerrak -> addChild('response',$e_okerra2);
+      $erantzunOkerrak -> addChild('response',$e_okerra3);
+
+      if($xml -> asXML('../xml/Questions.xml')){
+        echo '<script> alert("Datuak ondo gorde dira XML-an")</script>';
+      }else{
+        echo '<script> alert("Datuak ez dira ondo gorde XML-an")</script>';
+      }
+      
+      
+      $data = file_get_contents('../json/Questions.json');
+      $array = json_decode($data);
+      $galderaJson = new stdClass();
+      $galderaJson -> subject = $arloa;
+      $galderaJson -> author = $eposta;
+      @$galderaJson -> itemBody -> p = $galdera;
+      @$galderaJson -> correctResponse -> response = $e_zuzena;
+      @$galderaJson -> incorrectResponse -> response[0] = $e_okerra1;
+      $galderaJson -> incorrectResponse -> response[1] = $e_okerra2;
+      $galderaJson -> incorrectResponse -> response[2] = $e_okerra3;
+
+      $galderaJsonArray[0] = $galderaJson;
+      array_push($array->assessmentItems,$galderaJsonArray[0]);
+      $jsonData = json_encode($array);
+      $jsonData = str_replace('{', '{'.PHP_EOL, $jsonData);
+      $jsonData = str_replace(',', ','.PHP_EOL, $jsonData);
+      $jsonData = str_replace('}', PHP_EOL.'}', $jsonData);
+      if(file_put_contents('../json/Questions.json',$jsonData)){
+        echo '<script> alert("Datuak ondo gorde dira JSON-ean")</script>';
+      }else{
+        echo '<script> alert("Datuak ez dira ondo gorde JSON-ean")</script>';
+      }
+
       ?>
 
     </div>

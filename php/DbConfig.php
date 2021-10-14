@@ -1,11 +1,11 @@
 <?php
-$lokal=0; //0 hodeirako
+$lokal=1; //0 hodeirako
 
 if ($lokal){
         $zerbitzaria="localhost";
     $erabiltzailea="root";
         $gakoa="";
-    $db="quiz";
+    $db="Quiz";
 }
 else{
     $zerbitzaria="localhost";
