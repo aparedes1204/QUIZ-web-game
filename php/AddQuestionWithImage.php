@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
   <?php include '../html/Head.html'?>
@@ -7,7 +7,7 @@
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
-    <div>
+    <div id="response">-->
       <?php
       include 'DbConfig.php';
       $esteka = mysqli_connect($zerbitzaria,$erabiltzailea,$gakoa,$db)
@@ -62,7 +62,6 @@
       mysqli_close($esteka);
 
       $xml = simplexml_load_file('../xml/Questions.xml');
-      sleep(2);
       $galderaXml = $xml->addChild('assessmentItem');
       $galderaXml -> addAttribute('author',$eposta);
       $galderaXml -> addAttribute('subject',$arloa);
@@ -106,9 +105,10 @@
       }
 
       ?>
-
+<!--
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
 </body>
 </html>
+    -->

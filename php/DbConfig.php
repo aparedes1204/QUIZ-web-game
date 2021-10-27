@@ -2,10 +2,10 @@
 $lokal=1; //0 hodeirako
 
 if ($lokal){
-        $zerbitzaria="localhost";
+    $zerbitzaria="localhost";
     $erabiltzailea="root";
-        $gakoa="";
-    $db="Quiz";
+    $gakoa="";
+    $db="quiz";
 }
 else{
     $zerbitzaria="localhost";

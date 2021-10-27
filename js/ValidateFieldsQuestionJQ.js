@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $("#submit").click(function () {
+    $("#submit").click(function() {
 
         var eposta = $("#eposta").val()
         var galdera = $("#galdera").val()

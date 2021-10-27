@@ -41,12 +41,14 @@
 
 
       </form>
+      <input type = "button" id="ikusi" name="ikusi" value="Galderak ikusi" onclick="showQuestions()">
 
     </div>
     
     <div id="test" name="galderenT">
         
     </div>
+    <div id = "galderak" name = "galderak"></div>
 
     
 
