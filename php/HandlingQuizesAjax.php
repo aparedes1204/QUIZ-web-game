@@ -7,6 +7,8 @@
   <script type="text/javascript" src="../js/ShowImageInForm.js"></script>
   <script type="text/javascript" src="../js/AddQuestionAjax.js"></script>
   <script type="text/javascript" src="../js/ShowQuestionsAjax.js"></script>
+  <script type="text/javascript" src="../js/JsonQuestionsCounter.js"></script>
+  <script type="text/javascript" src="../js/XmlUsersCounter.js"></script>
   <!--script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>-->
   <!--<script type="text/javascript" src="../js/ValidateFieldsQuestionJQ.js"></script>-->
 
@@ -15,6 +17,10 @@
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
+    <p>Kautotutako erabiltzaile kopurua:</p>
+    <div id="userKont" name="userKont"></div>
+    <div id="galderenKont" name="galderenKont"></div>
+
     <div id="form-with-image" name="form-with-image">
 
       <form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data" action="AddQuestionWithImage.php?eposta=<?php echo $_GET['eposta']?>">

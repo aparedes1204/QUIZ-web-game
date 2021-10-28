@@ -51,7 +51,7 @@
 
             mysqli_free_result($emaitza);
             mysqli_close($esteka);
-            
+            include "IncreaseGlobalCounter.php";
             header("Location: Layout.php?eposta=".$eposta);
             
         }

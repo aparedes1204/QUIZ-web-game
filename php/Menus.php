@@ -25,6 +25,7 @@
     $eposta = $_GET['eposta'];
     echo "<span><a href='Layout.php?eposta=$eposta'>Hasiera</a></span> 
     <span><a href = 'QuestionFormWithImage.php?eposta=$eposta'> Galdera gehitu</a> <span>
+    <span><a href = 'HandlingQuizesAjax.php?eposta=$eposta'> Kudeatu galderak</a> <span>
     <span><a href='ShowQuestionsWithImage.php?eposta=$eposta'>Galderak</a></span>
     <span><a href='ShowXmlQuestions.php?eposta=$eposta'>Ikusi xml galderak</a></span>
     <span><a href='ShowJsonQuestions.php?eposta=$eposta'>Ikusi json galderak</a></span>
