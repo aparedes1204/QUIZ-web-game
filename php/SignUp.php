@@ -90,7 +90,7 @@
             }
 
             mysqli_close($esteka);
-            header("Location: ../php/Layout.php");
+            echo "<script>if(window.confirm('Zuzen erregistratuta')){window.location.href='Layout.php'} </script>";
         }
     ?>
 
