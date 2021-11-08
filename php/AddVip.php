@@ -12,16 +12,29 @@
   <section class="main" id="s1">
     <div>
 	  
-		<form id="galderenF" method="post" name="vipGehitu" action="vipusers">
+		<form id="galderenF" method="post" name="vipGehitu" action="AddVip.php">
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
 			<input	type="submit" id="submit" name="submit" value="Bidali">
 			<input 	type="button" id="hustu" name="hustu" value="Hustu" onclick='this.reset()'>
 
 		</form>
-	
+    <?php
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+      $curl = curl_init();
+      $url = "localhost/WS/php/vipusers/";
+      $data=array('eposta' => $_POST['eposta']);
+      curl_setopt($curl, CURLOPT_URL, $url);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);
+      curl_setopt($curl, CURLOPT_POST, true);
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+      $str = curl_exec($curl);
+      echo $str;
+    }
+    ?>
     </div>
   </section>
+
   <?php include '../html/Footer.html' ?>
 </body>
 </html>

@@ -18,7 +18,7 @@
             <p>Pasahitza (*):<input type="password" id="pasahitza" name="pasahitza"><p>
             <p>Pasahitza errepikatu (*):<input type="password" id="pasahitzaErrep" name="pasahitzaErrep"><p>
             <input type="file" id="irudia" name="irudia" accept="image/*" onchange="loadFile(event)">
-	    <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
+	          <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
             <input type="submit" disabled id="submit" name="submit"  value="Bidali">
 	</form>
 
@@ -38,7 +38,7 @@
             $deitura = trim(preg_replace("/\s+/",' ',$_POST['deitura']));
             $pasahitza = $_POST['pasahitza'];
             $pasahitzaErrep = $_POST['pasahitzaErrep'];
-	    $image = $_FILES['irudia']['tmp_name'];
+	          $image = $_FILES['irudia']['tmp_name'];
       	    $blob = addslashes(file_get_contents($image));
             
             if ($erMota === "" || $eposta ==="" || $deitura === "" || $pasahitza === "" || $pasahitzaErrep === "") {

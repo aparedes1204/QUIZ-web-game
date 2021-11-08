@@ -49,14 +49,13 @@ $resource = $_SERVER['REQUEST_URI'];
              else{
                  echo "error";
              }
+             break;
         case 'PUT':
              // hau ez da inplementatu behar
         case 'DELETE':
              // VIP erabiltzailea ezabatzeko
-             $request_vars = array();
-             parse_str($this->getContent(), $request_vars);
-             echo $request_vars;
-             $sql = "DELETE FROM vip WHERE eposta='{$post_vars}'";
+             $eposta=$_REQUEST['eposta'];
+             $sql = "DELETE FROM vip WHERE eposta='{$eposta}'";
              $data = Database::GauzatuEzKontsulta($cnx, $sql);
              if($data){
                  echo "success";
@@ -64,6 +63,7 @@ $resource = $_SERVER['REQUEST_URI'];
              else{
                  echo "error";
              }
+             break;
 	}
     Database::Deskonektatu($cnx);
 	
