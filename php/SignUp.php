@@ -2,7 +2,8 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
-  
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/ValidateFieldsQuestionJQ.js"></script>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
@@ -18,7 +19,7 @@
             <p>Pasahitza errepikatu (*):<input type="password" id="pasahitzaErrep" name="pasahitzaErrep"><p>
             <input type="file" id="irudia" name="irudia" accept="image/*" onchange="loadFile(event)">
 	    <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
-            <input type="submit" id="submit" name="submit" value="Bidali">
+            <input type="submit" disabled id="submit" name="submit"  value="Bidali">
 	</form>
 
 
