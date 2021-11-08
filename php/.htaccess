@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule vipusers/(.+) VipUsers.php?eposta=$1
+RewriteRule vipusers/ VipUsers.php
+RewriteRule vipusers VipUsers.php
