@@ -24,7 +24,11 @@
     <?php
     if($_SERVER['REQUEST_METHOD']=="POST"){
       $curl = curl_init();
-      $url = "localhost/WS/php/VipUsers/";
+      $domain = $_SERVER['HTTP_HOST'];
+      $path = $_SERVER['REQUEST_URI'];
+      $relative = '/VipUsers/';
+      $url = 'https://'.dirname($domain.$path).$relative;
+      //$url = "localhost/WS/php/VipUsers/";
       $data=array('eposta' => $_POST['eposta']);
       curl_setopt($curl, CURLOPT_URL, $url);
       curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);

@@ -32,7 +32,9 @@
 		<?php
 		$data = file_get_contents("https://api.freegeoip.app/json/?apikey=c656e670-4196-11ec-9bff-c741f5d19ced");
 		$data = json_decode($data);
-		echo "Zerbitzaria ".$data->city."-n dago";
+		echo "Zerbitzaria ".$data->country_name."-n dago<br/>";
+		echo "Latitudea: ".$data->latitude."<br/>";
+		echo "Longitudea: ".$data->longitude."<br/>";
 		?>
 
   </section>
