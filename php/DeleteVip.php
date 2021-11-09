@@ -14,7 +14,7 @@
 	  <h1>
       Erabiltzailea VIP zerrendatik kentzeko REST bezeroa:
     </h1>
-		<form id="galderenF" method="post" name="vipEzabatu" action="DeleteVip.php">
+		<form id="galderenF" method="post" name="vipEzabatu" action=<?php echo "DeleteVip.php?eposta=".$_GET['eposta'] ?>>
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
 			<input	type="submit" id="submit" name="submit" value="Bidali">

@@ -14,7 +14,7 @@
 	  <h1>
       VIP erabiltzaile zerrendari eposta bat gehiago gehitzeko REST bezeroa:
     </h1>
-		<form id="galderenF" method="post" name="vipGehitu" action="AddVip.php">
+		<form id="galderenF" method="post" name="vipGehitu" action=<?php echo "AddVip.php?eposta=".$_GET['eposta'] ?>>
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
 			<input	type="submit" id="submit" name="submit" value="Bidali">

@@ -14,7 +14,7 @@
 	  <h1>
       Erabiltzailea VIP den begiratzeko REST bezeroa:
     </h1>
-		<form id="galderenF" method="post" name="vipDa" action="IsVip.php">
+		<form id="galderenF" method="post" name="vipDa" action=<?php echo "IsVip.php?eposta=".$_GET['eposta'] ?>>
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
 			<input	type="submit" id="submit" name="submit" value="Bidali">
