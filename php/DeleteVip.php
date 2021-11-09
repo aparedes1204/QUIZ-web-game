@@ -23,6 +23,9 @@
 		</form>
     <?php
     if($_SERVER['REQUEST_METHOD']=="POST"){
+      if($_POST['eposta'] === ""){
+        echo 'Eposta bat sartu';
+      } else {
         $curl = curl_init();
         $domain = $_SERVER['HTTP_HOST'];
         $path = $_SERVER['REQUEST_URI'];
@@ -34,6 +37,7 @@
         curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);
         $str = curl_exec($curl);
         echo $str;
+      }
     }
     ?>
     </div>
