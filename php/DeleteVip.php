@@ -11,7 +11,9 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-	  
+	  <h1>
+      Erabiltzailea VIP zerrendatik kentzeko REST bezeroa:
+    </h1>
 		<form id="galderenF" method="post" name="vipEzabatu" action="DeleteVip.php">
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
@@ -22,7 +24,7 @@
     <?php
     if($_SERVER['REQUEST_METHOD']=="POST"){
         $curl = curl_init();
-        $url = "localhost/WS/php/vipusers/".$_POST['eposta'];
+        $url = "localhost/WS/php/VipUsers/".$_POST['eposta'];
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);

@@ -12,8 +12,12 @@
         <h1>Erregistroa</h1>
 
         <form id = "sign-up-form" name = "sign-up-form" enctype = "multipart/form-data" method = "post" action="SignUp.php">
-            <p>Erabiltzaile mota (*):<input type="text" id="erMota" name="erMota"><p>
+            <p>Erabiltzaile mota (*):
+              <input type="radio" id="erMota" name="erMota" value="ikaslea">Ikaslea
+              <input type="radio" id="erMota" name="erMota" value="irakaslea">Irakaslea
+            </p>
             <p>Eposta (*):<input type="text" id="eposta" name="eposta"><p>
+            <p id="epostaAlert" name="epostaAlert"></p>             
             <p>Deitura (*):<input type="text" id="deitura" name="deitura"><p>
             <p>Pasahitza (*):<input type="password" id="pasahitza" name="pasahitza"><p>
             <p>Pasahitza errepikatu (*):<input type="password" id="pasahitzaErrep" name="pasahitzaErrep"><p>
@@ -41,16 +45,8 @@
 	          $image = $_FILES['irudia']['tmp_name'];
       	    $blob = addslashes(file_get_contents($image));
             
-            if ($erMota === "" || $eposta ==="" || $deitura === "" || $pasahitza === "" || $pasahitzaErrep === "") {
+            if (!isset($erMota) || $eposta ==="" || $deitura === "" || $pasahitza === "" || $pasahitzaErrep === "") {
                 die ("Bete beharrezkoak (*) diren eremu guztiak");
-            }
-            
-            
-            if (!filter_var($erMota,
-                FILTER_VALIDATE_REGEXP, 
-                array('options' => array('regexp' => '/^(irakaslea|ikaslea)$/')) )
-                ) {
-                die('Erabiltzaile mota okerra (ikaslea edo irakaslea)');
             }
 
             if (!filter_var($eposta,

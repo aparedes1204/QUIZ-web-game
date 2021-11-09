@@ -11,7 +11,9 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-	  
+	  <h1>
+      VIP erabiltzaile zerrendari eposta bat gehiago gehitzeko REST bezeroa:
+    </h1>
 		<form id="galderenF" method="post" name="vipGehitu" action="AddVip.php">
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
@@ -22,7 +24,7 @@
     <?php
     if($_SERVER['REQUEST_METHOD']=="POST"){
       $curl = curl_init();
-      $url = "localhost/WS/php/vipusers/";
+      $url = "localhost/WS/php/VipUsers/";
       $data=array('eposta' => $_POST['eposta']);
       curl_setopt($curl, CURLOPT_URL, $url);
       curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);

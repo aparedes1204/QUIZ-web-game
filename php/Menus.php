@@ -23,13 +23,21 @@
   <?php
   if(isset($_GET['eposta'])){
     $eposta = $_GET['eposta'];
+    $rola = mysqli_query($link, "SELECT erMota FROM Users WHERE Users.eposta = '{$eposta}'");
+    $row = mysqli_fetch_array($rola, MYSQLI_ASSOC);
     echo "<span><a href='Layout.php?eposta=$eposta'>Hasiera</a></span> 
     <span><a href = 'QuestionFormWithImage.php?eposta=$eposta'> Galdera gehitu</a> <span>
     <span><a href = 'HandlingQuizesAjax.php?eposta=$eposta'> Kudeatu galderak</a> <span>
     <span><a href='ShowQuestionsWithImage.php?eposta=$eposta'>Galderak</a></span>
     <span><a href='ShowXmlQuestions.php?eposta=$eposta'>Ikusi xml galderak</a></span>
-    <span><a href='ShowJsonQuestions.php?eposta=$eposta'>Ikusi json galderak</a></span>
-    <span><a href='Credits.php?eposta=$eposta'>Kredituak</a></span>";
+    <span><a href='ShowJsonQuestions.php?eposta=$eposta'>Ikusi json galderak</a></span>";
+    if($row['erMota'] === "irakaslea"){
+      echo "<span><a href = 'IsVip.php?eposta=$eposta'> VIPa da? </a> <span>
+      <span><a href = 'AddVip.php?eposta=$eposta'> Gehitu VIPa </a> <span>
+      <span><a href='DeleteVip.php?eposta=$eposta'>Ezabatu VIPa</a></span>
+      <span><a href='ShowVips.php?eposta=$eposta'>Zerrendatu VIPak</a></span>";
+    }
+    echo "<span><a href='Credits.php?eposta=$eposta'>Kredituak</a></span>";
   } else {
     echo "<span><a href='Layout.php'>Hasiera</a></span>
     <span><a href='Credits.php'>Kredituak</a></span>";

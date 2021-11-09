@@ -12,6 +12,9 @@ $(document).ready(function() {
             type: 'POST',
             success: function(data) {
                 if (data.enrolled){
+                    $("#epostaAlert").html()
+                    $("#epostaAlert").html("Eposta zuzena. Web Sistemak ikasgaian matrikulatuta zaude")
+
                     var emailRE = /^[a-zA-Z]+([0-9]{3}@ikasle\.ehu|(\.[a-zA-Z]+){0,1}[a-zA-Z]+@ehu)\.(eus|es)$/
                     
                     if (emailRE.test(eposta)) {
@@ -20,12 +23,14 @@ $(document).ready(function() {
                         alert("Eposta okerra")
                     }  
                 } else {
-                    alert("Eposta okerra. Ez zaude Web Sistemak ikasgaian matrikulatuta")
+                    $("#epostaAlert").html()
+                    $("#epostaAlert").html("Eposta okerra. Ez zaude Web Sistemak ikasgaian matrikulatuta")
                     $("#submit").prop("disabled", true)
                 }
             }, 
             error: function(data){
-                alert("Arazo bat egon da matrikulak kontsultatzerakoan")
+                $("#epostaAlert").html()
+                $("#epostaAlert").html("Arazo bat egon da matrikulak kontsultatzerakoan")
                 $("#submit").prop("disabled", true)
             },
             cache: false

@@ -21,8 +21,8 @@ $resource = $_SERVER['REQUEST_URI'];
                 $sql = "SELECT * FROM vip WHERE eposta='{$eposta}'";
                 echo $sql .' kontsulta exekutatzen dut <p>';
                 $data = Database::GauzatuKontsulta($cnx, $sql);
-                if (isset($data[0])){echo "<br><br><b>ZORIONAK ".$eposta." VIPa da </b><br><img src=../images/ok.gif>";break;}
-                else {echo "<br><br><b>SENTITZEN DUT ".$eposta." Ez da VIPa</b><br><img src=../images/ko.gif>";
+                if (isset($data[0])){echo "<br><br><b>ZORIONAK ".$eposta." VIPa da </b><br><img height=300px src=https://lh3.googleusercontent.com/proxy/ZgOL1p0D2B1jtRAgH_e7FDZyVougtwGKlK3u4fw31QWEe2t05q6xnKiT_tX8Stz_6ITOJXwgjbzjy70f0LY>";break;}
+                else {echo "<br><br><b>SENTITZEN DUT ".$eposta." Ez da VIPa</b><br><img height=300px src=https://www.arttdinox.com/assets/web/wrong.gif>";
                 break;}
 			}
 			else
