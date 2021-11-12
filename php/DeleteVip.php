@@ -27,10 +27,7 @@
         echo 'Eposta bat sartu';
       } else {
         $curl = curl_init();
-        $domain = $_SERVER['HTTP_HOST'];
-        $path = $_SERVER['REQUEST_URI'];
-        $relative = '/VipUsers/';
-        $url = 'https://'.dirname($domain.$path).$relative.$_POST['eposta'];
+        $url = 'https://sw.ikasten.io/~T60/rest/VipUsers/'.$_POST['eposta'];
         //$url = "localhost/WS/php/VipUsers/".$_POST['eposta'];
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");

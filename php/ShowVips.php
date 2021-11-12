@@ -18,10 +18,7 @@
 
     $curl = curl_init();
     $curl = curl_init();
-    $domain = $_SERVER['HTTP_HOST'];
-    $path = $_SERVER['REQUEST_URI'];
-    $relative = '/VipUsers/';
-    $url = 'https://'.dirname($domain.$path).$relative;
+    $url = 'https://sw.ikasten.io/~T60/rest/VipUsers';
     //$url = "localhost/WS/php/VipUsers";
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);

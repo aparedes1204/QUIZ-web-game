@@ -358,5 +358,20 @@
 "werwerrwer",
 "werwer"]
 }
+},
+{
+"subject":"Mikologia",
+"author":"mafalda001@ikasle.ehu.eus",
+"itemBody":{
+"p":"zer dute galanpernek kapela azpian?"
+},
+"correctResponse":{
+"response":"Eranztuna"
+},
+"incorrectResponse":{
+"response":["Himenioa",
+"Eztenak",
+"Hodiak"]
+}
 }]
 }
