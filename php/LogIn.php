@@ -44,8 +44,8 @@
             $emaitza = mysqli_query($esteka, "SELECT pasahitza FROM Users WHERE Users.eposta = '{$eposta}'");
 
             $strEmaitza = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)['pasahitza'];
-
-            if ($strEmaitza != $pasahitza){
+            echo(crypt($pasahitza, $strEmaitza));
+            if (!hash_equals($strEmaitza, crypt($pasahitza, $strEmaitza))){
                 die("Errorea kautotzean");
             }
 

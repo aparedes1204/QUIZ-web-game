@@ -83,7 +83,7 @@
             if($emaitza -> num_rows != 0){
                 die("Dagoeneko eposta horrekin erregistratutako erabiltzaile bat badago");
             }
-
+            $pasahitza = crypt($pasahitza);
             $sartu = mysqli_query($esteka, "INSERT INTO Users(erMota, eposta, deitura, pasahitza, argazkia) VALUES ('$erMota', '$eposta', '$deitura', '$pasahitza', '{$blob}')");
 
             if (!$sartu){
