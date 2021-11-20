@@ -44,7 +44,7 @@
             $pasahitzaErrep = $_POST['pasahitzaErrep'];
 	          $image = $_FILES['irudia']['tmp_name'];
       	    $blob = addslashes(file_get_contents($image));
-            
+
             if (!isset($erMota) || $eposta ==="" || $deitura === "" || $pasahitza === "" || $pasahitzaErrep === "") {
                 die ("Bete beharrezkoak (*) diren eremu guztiak");
             }
@@ -72,6 +72,10 @@
 
             if($pasahitza!==$pasahitzaErrep){
                 die('Pasahitzak ez dira berdinak');
+            }
+
+            if($eposta === "admin@ehu.es"){
+              $erMota = "admin";
             }
 
             $emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = '{$eposta}'");

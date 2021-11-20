@@ -2,6 +2,12 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+  <?php 
+    include 'Security.php';
+    if ($_SESSION["erMota"] !== "irakaslea"){
+      header("Location: Layout.php");
+    }
+  ?>
   <!--<script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>-->
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   

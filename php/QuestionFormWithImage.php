@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <?php include 'Security.php' ?>
   <?php include '../html/Head.html' ?>
   <script type="text/javascript" src="../js/ShowImageInForm.js"></script>
   <!--script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>-->
@@ -15,9 +16,9 @@
   <section class="main" id="s1">
     <div id="form-with-image" name="form-with-image">
 
-      <form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data" action="AddQuestionWithImage.php?eposta=<?php echo $_GET['eposta']?>">
+      <form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data" action="AddQuestionWithImage.php">
         <?php
-          $eposta = $_GET['eposta'];
+          $eposta = $_SESSION['eposta'];
           echo "<p>Eposta(*): <input type='text' id='eposta' name='eposta' value = '$eposta' readonly size='40'></p>";
         ?>
         <p>Galdera(*): <input type="text" id="galdera" name="galdera" size="40"></p>

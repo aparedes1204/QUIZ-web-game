@@ -2,14 +2,17 @@
 <header class='main' id='h1'>
   <?php
       include 'DbConfig.php';
-      if(isset($_GET['eposta'])){
-        $eposta = $_GET['eposta'];
-	$link = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db)
-	or die("no link");
-	$ema = mysqli_query($link,"SELECT argazkia FROM Users WHERE Users.eposta = '{$eposta}'");
-	$row=mysqli_fetch_array($ema, MYSQLI_ASSOC);
+      if (!isset($_SESSION)){
+        session_start();
+      } 
+      if(isset($_SESSION["eposta"])){
+        $eposta = $_SESSION["eposta"];
+	      $link = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db)
+      	or die("no link");
+	      $ema = mysqli_query($link,"SELECT argazkia FROM Users WHERE Users.eposta = '{$eposta}'");
+	      $row=mysqli_fetch_array($ema, MYSQLI_ASSOC);
         echo "Erabiltzailea: $eposta<p><span class='right'><a href='LogOut.php'>Logout</a></span>";
-	if($row['argazkia']!=NULL){
+	      if($row['argazkia']!=NULL){
         	echo '<td> <img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['argazkia']).'"/ height=100>';
         }
       } else {
@@ -21,23 +24,23 @@
 
 <nav class='main' id='n1' role='navigation'>
   <?php
-  if(isset($_GET['eposta'])){
-    $eposta = $_GET['eposta'];
-    $rola = mysqli_query($link, "SELECT erMota FROM Users WHERE Users.eposta = '{$eposta}'");
-    $row = mysqli_fetch_array($rola, MYSQLI_ASSOC);
-    echo "<span><a href='Layout.php?eposta=$eposta'>Hasiera</a></span> 
-    <span><a href = 'QuestionFormWithImage.php?eposta=$eposta'> Galdera gehitu</a> <span>
-    <span><a href = 'HandlingQuizesAjax.php?eposta=$eposta'> Kudeatu galderak</a> <span>
-    <span><a href='ShowQuestionsWithImage.php?eposta=$eposta'>Galderak</a></span>
-    <span><a href='ShowXmlQuestions.php?eposta=$eposta'>Ikusi xml galderak</a></span>
-    <span><a href='ShowJsonQuestions.php?eposta=$eposta'>Ikusi json galderak</a></span>";
-    if($row['erMota'] === "irakaslea"){
-      echo "<span><a href = 'IsVip.php?eposta=$eposta'> VIPa da? </a> <span>
-      <span><a href = 'AddVip.php?eposta=$eposta'> Gehitu VIPa </a> <span>
-      <span><a href='DeleteVip.php?eposta=$eposta'>Ezabatu VIPa</a></span>
-      <span><a href='ShowVips.php?eposta=$eposta'>Zerrendatu VIPak</a></span>";
+  if(isset($_SESSION["eposta"])){
+    $eposta = $_SESSION['eposta'];
+    
+    echo "<span><a href='Layout.php'>Hasiera</a></span>";
+    
+    if($_SESSION['erMota'] === "irakaslea"){
+      echo "<span><a href = 'HandlingQuizesAjax.php'> Kudeatu galderak</a> <span>
+      <span><a href = 'IsVip.php'> VIPa da? </a> <span>
+      <span><a href = 'AddVip.php'> Gehitu VIPa </a> <span>
+      <span><a href='DeleteVip.php'>Ezabatu VIPa</a></span>
+      <span><a href='ShowVips.php'>Zerrendatu VIPak</a></span>";
+    } else if($_SESSION["erMota"]==="admin"){
+        echo "<span><a href='HandlingAccounts.php'>Kontuak kudeatu</a></span>";
+    } else if($_SESSION["erMota"] === "ikaslea"){
+        echo "<span><a href = 'HandlingQuizesAjax.php'> Kudeatu galderak</a> <span>";
     }
-    echo "<span><a href='Credits.php?eposta=$eposta'>Kredituak</a></span>";
+    echo "<span><a href='Credits.php'>Kredituak</a></span>";
   } else {
     echo "<span><a href='Layout.php'>Hasiera</a></span>
     <span><a href='Credits.php'>Kredituak</a></span>";

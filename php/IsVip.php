@@ -2,6 +2,12 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+  <?php 
+    include 'Security.php';
+    if ($_SESSION["erMota"] !== "irakaslea"){
+      header("Location: Layout.php");
+    }
+  ?>
   <!--<script type="text/javascript" src="../js/ValidateFieldsQuestionJS.js"></script>-->
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   
@@ -14,7 +20,7 @@
 	  <h1>
       Erabiltzailea VIP den begiratzeko REST bezeroa:
     </h1>
-		<form id="galderenF" method="post" name="vipDa" action=<?php echo "IsVip.php?eposta=".$_GET['eposta'] ?>>
+		<form id="galderenF" method="post" name="vipDa" action="IsVip.php">
 	
 			<p>Eposta(*): <input type="text" id="eposta" name="eposta" size="40"></p>
 			<input	type="submit" id="submit" name="submit" value="Bidali">

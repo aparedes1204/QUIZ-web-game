@@ -50,9 +50,31 @@
             }
 
             mysqli_free_result($emaitza);
+
+            $emaitza = mysqli_query($esteka, "SELECT erMota FROM Users WHERE Users.eposta = '{$eposta}'");
+
+            $erMota = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)['erMota'];
+
+            mysqli_free_result($emaitza);
             mysqli_close($esteka);
             include "IncreaseGlobalCounter.php";
-            header("Location: Layout.php?eposta=".$eposta);
+            if (!isset($_SESSION)){
+                session_start();
+            }
+            $_SESSION['eposta'] = $eposta;
+            $_SESSION['erMota'] = $erMota;
+
+            if($erMota === "ikaslea"){
+                header("Location: HandlingQuizesAjax.php");
+            } 
+            
+            if ($erMota === "irakaslea"){
+                header("Location: Layout.php");
+            }
+
+            if ($erMota === "admin"){
+                header("Location: HandlingAccounts.php");
+            }
             
         }
     ?>
