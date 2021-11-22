@@ -6,7 +6,7 @@ function loadFile(event) {
     var image = document.createElement("img")
     image.id = 'img-preview'
     image.style.display = 'inline'
-    image.style.height = '300px'
+    image.style.height = '100px'
     image.src = URL.createObjectURL(event.target.files[0])
     document.getElementById("form-with-image").appendChild(image)
 };

@@ -50,10 +50,10 @@
         <input type="button" id="submit" name="submit" value="Bidali">
         <input type="button" id="hustu" name="hustu" value="Hustu" onclick='resetForm()'>
 
+        <input type = "button" id="ikusi" name="ikusi" value="Galderak ikusi" onclick="showQuestions()">
 
 
       </form>
-      <input type = "button" id="ikusi" name="ikusi" value="Galderak ikusi" onclick="showQuestions()">
 
     </div>
     
