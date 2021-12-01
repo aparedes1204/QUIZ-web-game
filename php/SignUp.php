@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php
+        if (!isset($_SESSION)){
+            session_start();
+        }
+        if (isset($_SESSION["eposta"])){
+            header("Location: Layout.php");
+        }
+    ?>
   <?php include '../html/Head.html'?>
   <script src="../js/jquery-3.4.1.min.js"></script>
   <script src="../js/ValidateFieldsQuestionJQ.js"></script>
@@ -33,8 +41,13 @@
 
         if($_SERVER['REQUEST_METHOD']=="POST") {
             include "DbConfig.php";
-            $esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db)
-            or die ("Errorea DB-ra konektatzean");
+            try {
+              $dsn = "mysql:host=$zerbitzaria;dbname=$db";
+              $dbh = new PDO($dsn, $erabiltzailea, $gakoa);
+            } catch (PDOException $e){
+              $e->getMessage();
+            }
+            //$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die ("Errorea DB-ra konektatzean");
             
             $erMota = trim($_POST['erMota']);
             $eposta = trim($_POST['eposta']);
@@ -77,20 +90,30 @@
             if($eposta === "admin@ehu.es"){
               $erMota = "admin";
             }
-
-            $emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = '{$eposta}'");
+            $stmt = $dbh->prepare("SELECT eposta FROM Users WHERE Users.eposta = ?");
+            $stmt->bindParam(1, $eposta);
+            $stmt->execute();
+            //$emaitza = mysqli_query($esteka, "SELECT eposta FROM Users WHERE Users.eposta = '{$eposta}'");
             
-            if($emaitza -> num_rows != 0){
+            if($stmt -> rowCount() != 0){
                 die("Dagoeneko eposta horrekin erregistratutako erabiltzaile bat badago");
             }
-            $pasahitza = crypt($pasahitza);
-            $sartu = mysqli_query($esteka, "INSERT INTO Users(erMota, eposta, deitura, pasahitza, argazkia) VALUES ('$erMota', '$eposta', '$deitura', '$pasahitza', '{$blob}')");
+            $pasahitza = crypt($pasahitza, rand());
+            $stmt = $dbh->prepare("INSERT INTO Users (erMota, eposta, deitura, pasahitza, argazkia) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bindParam(1, $erMota);
+            $stmt->bindParam(2, $eposta);
+            $stmt->bindParam(3, $deitura);
+            $stmt->bindParam(4, $pasahitza);
+            $stmt->bindParam(5, $blob);
+            $stmt->execute();
+            //$sartu = mysqli_query($esteka, "INSERT INTO Users(erMota, eposta, deitura, pasahitza, argazkia) VALUES ('$erMota', '$eposta', '$deitura', '$pasahitza', '{$blob}')");
 
-            if (!$sartu){
-                die("Errorea erregistreratzerakoan");
-            }
+            // if (!$sartu){
+            //     die("Errorea erregistreratzerakoan");
+            // }
 
-            mysqli_close($esteka);
+            //mysqli_close($esteka);
+            $dbh = null;
             echo "<script>if(window.confirm('Zuzen erregistratuta')){window.location.href='Layout.php'} </script>";
         }
     ?>

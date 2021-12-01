@@ -31,17 +31,19 @@
 	      echo '<div align="center"> <table id="userTable" border="1"> <tr> <th>Eposta-a</th> <th>Pasahitza</th> <th>Argazkia</th> <th>Egoera</th> <th>Permutatu</th> <th>Ezabatu</th> </tr>';
 
         while($row=mysqli_fetch_array($emaitza, MYSQLI_ASSOC)){
-          echo '<tr> <td id="eposta">'.$row['eposta'].'</td> <td>'.$row['pasahitza'].'</td>';
+          if ($row['eposta'] !== "admin@ehu.es"){
+            echo '<tr> <td id="eposta">'.$row['eposta'].'</td> <td>'.$row['pasahitza'].'</td>';
 
-	        if($row['argazkia']!=NULL){
-	          echo '<td> <img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['argazkia']).'"/ height=50>';
-	        } else {
-	          echo '<td> </td>';
+            if($row['argazkia']!=NULL){
+              echo '<td> <img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['argazkia']).'"/ height=50>';
+            } else {
+              echo '<td> </td>';
+            }
+            $egoera = $row["egoera"] == "1" ? "Baimenduta" : "Blokeatuta";
+            $value = $row["egoera"] == "1" ? "Blokeatu" : "Baimendu";
+            echo '<td id="egoera">'.$egoera.'</td> <td> <input type="button" id="permutationButton" value="'.$value.'"></td> <td> <input type="button" id="removeButton" value="Ezabatu"></td>';
+            echo '</tr>';
           }
-          $egoera = $row["egoera"];
-          $value = $egoera == "1" ? "ON" : "OFF";
-          echo '<td id="egoera">'.$row['egoera'].'</td> <td> <input type="button" id="permutationButton" value="'.$value.'"></td> <td> <input type="button" id="removeButton" value="Ezabatu"></td>';
-	        echo '</tr>';
         }
         echo '</table> </div>';
 

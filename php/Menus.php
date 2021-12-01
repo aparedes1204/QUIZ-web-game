@@ -1,5 +1,7 @@
 <div id='page-wrap'>
 <header class='main' id='h1'>
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  <script src='../js/LogOut.js'></script>
   <?php
       include 'DbConfig.php';
       if (!isset($_SESSION)){
@@ -11,7 +13,7 @@
       	or die("no link");
 	      $ema = mysqli_query($link,"SELECT argazkia FROM Users WHERE Users.eposta = '{$eposta}'");
 	      $row=mysqli_fetch_array($ema, MYSQLI_ASSOC);
-        echo "Erabiltzailea: $eposta<p><span class='right'><a href='LogOut.php'>Logout</a></span>";
+        echo "Erabiltzailea: $eposta<p><span class='right'><a id=logout href=''>Logout</a></span>";
 	      if($row['argazkia']!=NULL){
         	echo '<td> <img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['argazkia']).'"/ height=100>';
         }

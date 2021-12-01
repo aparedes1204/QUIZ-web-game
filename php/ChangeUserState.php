@@ -5,15 +5,16 @@
         include "DbConfig.php";
         $esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db)
         or die ("Errorea DB-ra konektatzean");
-        if($egoera === "1"){
-            $egoera = "2";
+        if($egoera === "Baimenduta"){
+            $egoera = "Blokeatuta";
         } else {
-            $egoera = "1";
+            $egoera = "Baimenduta";
         }
-        mysqli_query($esteka, "UPDATE Users SET egoera = '{$egoera}' WHERE eposta = '{$eposta}'");
+        $egoeradb = $egoera == "Baimenduta" ? "1" : "2";
+        mysqli_query($esteka, "UPDATE Users SET egoera = '{$egoeradb}' WHERE eposta = '{$eposta}'");
         $response = [
             'egoera' => $egoera,
-            'buttonValue' => $egoera == "1" ? "ON" : "OFF"
+            'buttonValue' => $egoera == "Baimenduta" ? "Blokeatu" : "Baimendu"
         ];
         echo json_encode($response);
     }

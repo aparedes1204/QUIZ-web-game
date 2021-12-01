@@ -4,5 +4,5 @@ if (!isset($_SESSION)){
     session_start();
 }
 session_destroy();
-echo "<script>if(window.confirm('Logging out. Agur')){window.location.href='Layout.php'} </script>";
+//echo "<script>window.location.href='Layout.php' alert (Logged out. Agur) </script>";
 ?>
