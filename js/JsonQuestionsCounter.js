@@ -10,7 +10,7 @@ questionCounter = function(){
                         total++
                     }
                 })
-                $("#galderenKont").html("Nire galderak/Galderak guztira (JSON) datu-basean: "+kont+"/"+total)
+                $("#galderenKont").html("Nire galderak/Galderak guztira (JSON) datu-basean: "+kont+"/"+total-1)
             })
 }
 

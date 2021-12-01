@@ -104,7 +104,7 @@
             $stmt->bindParam(2, $eposta);
             $stmt->bindParam(3, $deitura);
             $stmt->bindParam(4, $pasahitza);
-            $stmt->bindParam(5, $blob);
+            $stmt->bindParamBlob(5, $blob);
             $stmt->execute();
             //$sartu = mysqli_query($esteka, "INSERT INTO Users(erMota, eposta, deitura, pasahitza, argazkia) VALUES ('$erMota', '$eposta', '$deitura', '$pasahitza', '{$blob}')");
 
