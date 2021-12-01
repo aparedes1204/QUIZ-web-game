@@ -8,7 +8,7 @@ $(document).ready(function(){
                 data: data,
                 type: 'POST',
                 success: function(data) {
-                    location.replace("../php/LayOut.php") 
+                    location.replace("../php/Layout.php") 
                 }, 
                 error: function(data){
                      alert("Ezin izan da zerbitzariarekin konektatu")
