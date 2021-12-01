@@ -56,7 +56,10 @@
             $pasahitza = $_POST['pasahitza'];
             $pasahitzaErrep = $_POST['pasahitzaErrep'];
 	          $image = $_FILES['irudia']['tmp_name'];
-      	    $blob = addslashes(file_get_contents($image));
+      	    if(isset($_FILES['irudia']['tmp_name'])){
+              $blob = fopen($_FILES['irudia']['tmp_name'],'rb');
+            }
+      	    // $blob = addslashes(file_get_contents($image));
 
             if (!isset($erMota) || $eposta ==="" || $deitura === "" || $pasahitza === "" || $pasahitzaErrep === "") {
                 die ("Bete beharrezkoak (*) diren eremu guztiak");
@@ -104,7 +107,7 @@
             $stmt->bindParam(2, $eposta);
             $stmt->bindParam(3, $deitura);
             $stmt->bindParam(4, $pasahitza);
-            $stmt->bindParam(5, $blob,PDO::PARAM_LOB);
+            $stmt->bindParam(5, $blob, PDO::PARAM_LOB);
             $stmt->execute();
             //$sartu = mysqli_query($esteka, "INSERT INTO Users(erMota, eposta, deitura, pasahitza, argazkia) VALUES ('$erMota', '$eposta', '$deitura', '$pasahitza', '{$blob}')");
 
