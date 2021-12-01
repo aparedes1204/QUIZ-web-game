@@ -24,7 +24,7 @@
 
     $curl = curl_init();
     $curl = curl_init();
-    $url = 'https://sw.ikasten.io/~T60/rest/VipUsers';
+    $url = 'https://sw.ikasten.io/~aparedes009/rest/VipUsers';
     //$url = "localhost/WS/php/VipUsers";
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);

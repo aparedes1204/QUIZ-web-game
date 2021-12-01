@@ -3,9 +3,9 @@
 // Datuak eskuratzeko konstanteak ...
 DEFINE("_HOST_", "localhost");
 DEFINE("_PORT_", "");
-DEFINE("_USERNAME_", "T60");
-DEFINE("_DATABASE_", "db_T60");
-DEFINE("_PASSWORD_", "KQrFOSVCQ6J9u");
+DEFINE("_USERNAME_", "aparedes009");
+DEFINE("_DATABASE_", "db_aparedes009");
+DEFINE("_PASSWORD_", "KkDMwMXZkVmchBXY");
 
 require_once 'database.php';
 $method = $_SERVER['REQUEST_METHOD'];

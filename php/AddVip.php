@@ -34,7 +34,7 @@
         echo 'Eposta bat sartu';
       } else {
         $curl = curl_init();
-        $url = 'https://sw.ikasten.io/~T60/rest/VipUsers';
+        $url = 'https://sw.ikasten.io/~aparedes009/rest/VipUsers';
         $data=array('eposta' => $_POST['eposta']);
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);

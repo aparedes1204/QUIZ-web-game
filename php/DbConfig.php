@@ -1,5 +1,5 @@
 <?php
-$lokal=1; //0 hodeirako
+$lokal=0; //0 hodeirako
 
 if ($lokal){
     $zerbitzaria="localhost";
@@ -9,9 +9,9 @@ if ($lokal){
 }
 else{
     $zerbitzaria="localhost";
-    $erabiltzailea="T60";
-    $gakoa="KQrFOSVCQ6J9u";
-    $db="db_T60";
+    $erabiltzailea="aparedes009";
+    $gakoa="KkDMwMXZkVmchBXY";
+    $db="db_aparedes";
 }
 ?>
 
