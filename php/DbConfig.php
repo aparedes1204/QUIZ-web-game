@@ -11,7 +11,7 @@ else{
     $zerbitzaria="localhost";
     $erabiltzailea="aparedes009";
     $gakoa="KkDMwMXZkVmchBXY";
-    $db="db_aparedes";
+    $db="db_aparedes009";
 }
 ?>
 
