@@ -19,7 +19,8 @@
         }
       } else {
         echo "<span class='right'><a href='SignUp.php'>Erregistratu</a></span>
-        <span class='right'><a href='LogIn.php'>Login</a></span>";
+        <span class='right'><a href='LogIn.php'>Login</a></span>
+        <span class ='right'><a href='AskForPasswordRecovery.php'>Pasahitza berreskuratu</a></span>";
       }
   ?>
 </header>
@@ -45,7 +46,6 @@
     echo "<span><a href='Credits.php'>Kredituak</a></span>";
   } else {
     echo "<span><a href='Layout.php'>Hasiera</a></span>
-    <span><a href='AskForRecoverycode.phph'>Pasahitza berreskuratu</a></span>
     <span><a href='Credits.php'>Kredituak</a></span>";
   }
     
