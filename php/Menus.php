@@ -45,6 +45,7 @@
     echo "<span><a href='Credits.php'>Kredituak</a></span>";
   } else {
     echo "<span><a href='Layout.php'>Hasiera</a></span>
+    <span><a href='AskForRecoverycode.phph'>Pasahitza berreskuratu</a></span>
     <span><a href='Credits.php'>Kredituak</a></span>";
   }
     
