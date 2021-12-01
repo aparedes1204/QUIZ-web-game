@@ -46,7 +46,7 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(data) {
                 if(!data.correct){
-                    $("#codeAlert").html("Kode okerra")
+                    $("#codeAlert").html("Kode okerra" + data.code)
                     $("#epostaAlert").css("color", "red")
                 } else {
                     $("#codeAlert").html("Kode zuzena")

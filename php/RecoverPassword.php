@@ -23,8 +23,8 @@
             $subject = "Pasahitza berreskuratzeko kodea";
             $code = rand(1000,9999);
             $message = "Zure pasahitza berreskuratzeko kodea: $code";
-            //mail($eposta, $subject, $message);
-            //$_SESSION["code"] = strval($code);
+            mail($eposta, $subject, $message);
+            $_SESSION["code"] = "$code";
           }
           mysqli_free_result($emaitza);
           mysqli_close($esteka);
@@ -33,16 +33,18 @@
       }
     }
     if(isset($_POST["validate"])){
-      if($_POST["code"] == "1234"){
+      if($_POST["code"] == $_SESSION["code"]){
         $response = [
-          'correct' => true
+          'correct' => true,
+	  'code' => $_SESSION["code"]
         ];
+	session_destroy();
       } else {
         $response = [
-          'correct' => false
+          'correct' => false,
+	  'code' => $_SESSION['code']
         ];
       }
-      session_destroy();
       echo json_encode($response);
     }
     if(isset($_POST["pasahitza"])){
