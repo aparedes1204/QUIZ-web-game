@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php
+        if (!isset($_SESSION)){
+            session_start();
+        }
+        if (isset($_SESSION["eposta"])){
+            header("Location: Layout.php");
+        }
+    ?>
   <?php include '../html/Head.html'?>
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="../js/RecoverPassword.js"></script>
