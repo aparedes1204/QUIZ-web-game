@@ -41,13 +41,13 @@ $resource = $_SERVER['REQUEST_URI'];
         case 'POST':
             if(isset($_POST["eZuzenak"]) && isset($_POST["eOkerrak"])){
                 $eposta = $_POST["eposta"];
-                $eZuzenak = $_POST["eZuzena"];
+                $eZuzenak = $_POST["eZuzenak"];
                 $eOkerrak = $_POST["eOkerrak"];
-                $sql1 = "UPDATE Users SET eZuzenak = {$eZuzenak} WHERE Users.eposta = '{$eposta}'";
-                $sql2 = "UPDATE Users SET eZuzenak = {$eOkerrak} WHERE Users.eposta = '{$eposta}'";
+                $sql1 = "UPDATE vip SET eZuzenak = eZuzenak + {$eZuzenak} WHERE vip.eposta = '{$eposta}'";
+                $sql2 = "UPDATE vip SET eOkerrak = eOkerrak + {$eOkerrak} WHERE vip.eposta = '{$eposta}'";
                 $data1 = Database::GauzatuEzKontsulta($cnx, $sql1);
                 $data2 = Database::GauzatuEzKontsulta($cnx, $sql2);
-                if($data1 && $data2){
+                if($data1 ||  $data2){
                     echo "success";
                 } else {
                     echo "error";

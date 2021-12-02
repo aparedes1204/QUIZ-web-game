@@ -158,12 +158,11 @@ $(document).on('click', '#gordeemaitzak', function(e){
         data["eZuzenak"] = zuzen
         data["eOkerrak"] = erantzunda - zuzen
         $.ajax({
-            url: '../php/isVip.php',
+            url: '../php/GordeEmaitzak.php',
             type: 'POST',
             data: data,
             dataType: 'text',
             success: function(data) {
-                var response = data.search("ZORIONAK")
                 if(data != "success"){
                     $("#vipAlert").text("Ez duzu kontu vip-a") 
                 } else {

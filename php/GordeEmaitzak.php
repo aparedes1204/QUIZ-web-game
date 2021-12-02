@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);
         $str = curl_exec($curl);
-        if(!strpos($str, "ZORIONAK")) {
+        if(strpos($str, "ZORIONAK")!= false) {
             $eZuzenak = $_POST["eZuzenak"];
             $eOkerrak = $_POST["eOkerrak"];
             $eposta = $_POST["eposta"];
@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             $str = curl_exec($curl);
             echo $str;
         } else {
-            echo "error";
+            echo "error vip";
         }
     }
 } else {
