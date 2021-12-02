@@ -56,7 +56,7 @@ $resource = $_SERVER['REQUEST_URI'];
             } else {
                 // VIPa gehitzeko
                 $eposta = $_POST["eposta"];
-                $sql = "INSERT INTO vip VALUES('{$eposta}')";
+                $sql = "INSERT INTO vip (eposta) VALUES('{$eposta}')";
                 $data = Database::GauzatuEzKontsulta($cnx, $sql);
                 if($data){
                     echo "success";

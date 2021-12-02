@@ -155,6 +155,8 @@ $(document).on('click', '#gordeemaitzak', function(e){
     } else {
         var data = {}
         data["eposta"] = $("#eposta").val()
+        data["eZuzenak"] = zuzen
+        data["eOkerrak"] = erantzunda - zuzen
         $.ajax({
             url: '../php/isVip.php',
             type: 'POST',
@@ -162,32 +164,12 @@ $(document).on('click', '#gordeemaitzak', function(e){
             dataType: 'text',
             success: function(data) {
                 var response = data.search("ZORIONAK")
-                if(response == -1){
+                if(data != "success"){
                     $("#vipAlert").text("Ez duzu kontu vip-a") 
                 } else {
-                    var emaitzak = {}
-                    emaitzak["eZuzenak"] = zuzen
-                    emaitzak["eOkerrak"] = erantzunda - zuzen
-                    emaitzak["eposta"] = $(this).val()
-                    $.ajax({
-                        url: '../php/GordeEmaitzak.php',
-                        type: 'POST',
-                        data: emaitzak,
-                        dataType: 'text',
-                        success: function(data) {
-                            if(data == "success"){
-                                if (confirm("Zure puntuaketa gorde egin da")){
-                                    window.location.assign("../php/Layout.php")
-                                }
-                            } else {
-                                alert("Arazo bat egon da emaitzak gordetzerakoan")
-                            }
-                        }, 
-                        error: function(data){
-                            alert("Ezin izan da zerbitzariarekin konektatu")
-                        },
-                        cache: false
-                    })
+                    if (confirm("Zure puntuaketa gorde egin da")){
+                        window.location.assign("../php/Layout.php")
+                    }
                 }
             }, 
             error: function(data){
