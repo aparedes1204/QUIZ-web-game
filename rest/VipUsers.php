@@ -39,16 +39,32 @@ $resource = $_SERVER['REQUEST_URI'];
 			}
 			break;
         case 'POST':
-             // VIPa gehitzeko
-             $eposta = $_POST["eposta"];
-             $sql = "INSERT INTO vip VALUES('{$eposta}')";
-             $data = Database::GauzatuEzKontsulta($cnx, $sql);
-             if($data){
-                 echo "success";
-             }
-             else{
-                 echo "error";
-             }
+            if(isset($_POST["eZuzenak"]) && isset($_POST["eOkerrak"])){
+                $eposta = $_POST["eposta"];
+                $eZuzenak = $_POST["eZuzena"];
+                $eOkerrak = $_POST["eOkerrak"];
+                $sql1 = "UPDATE Users SET eZuzenak = {$eZuzenak} WHERE Users.eposta = '{$eposta}'";
+                $sql2 = "UPDATE Users SET eZuzenak = {$eOkerrak} WHERE Users.eposta = '{$eposta}'";
+                $data1 = Database::GauzatuEzKontsulta($cnx, $sql1);
+                $data2 = Database::GauzatuEzKontsulta($cnx, $sql2);
+                if($data1 && $data2){
+                    echo "success";
+                } else {
+                    echo "error";
+                }
+                
+            } else {
+                // VIPa gehitzeko
+                $eposta = $_POST["eposta"];
+                $sql = "INSERT INTO vip VALUES('{$eposta}')";
+                $data = Database::GauzatuEzKontsulta($cnx, $sql);
+                if($data){
+                    echo "success";
+                }
+                else{
+                    echo "error";
+                }
+            }
              break;
         case 'PUT':
              // hau ez da inplementatu behar

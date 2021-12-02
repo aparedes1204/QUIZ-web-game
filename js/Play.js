@@ -149,6 +149,56 @@ $(document).on('click', '#emaitzak', function(e){
    emaitzak()
 });
 
+$(document).on('click', '#gordeemaitzak', function(e){
+    if($("#eposta").val() == ""){
+        $("#vipAlert").text("Sartu eposta bat")
+    } else {
+        var data = {}
+        data["eposta"] = $("#eposta").val()
+        $.ajax({
+            url: '../php/isVip.php',
+            type: 'POST',
+            data: data,
+            dataType: 'text',
+            success: function(data) {
+                var response = data.search("ZORIONAK")
+                if(response == -1){
+                    $("#vipAlert").text("Ez duzu kontu vip-a") 
+                } else {
+                    var emaitzak = {}
+                    emaitzak["eZuzenak"] = zuzen
+                    emaitzak["eOkerrak"] = erantzunda - zuzen
+                    emaitzak["eposta"] = $(this).val()
+                    $.ajax({
+                        url: '../php/GordeEmaitzak.php',
+                        type: 'POST',
+                        data: emaitzak,
+                        dataType: 'text',
+                        success: function(data) {
+                            if(data == "success"){
+                                if (confirm("Zure puntuaketa gorde egin da")){
+                                    window.location.assign("../php/Layout.php")
+                                }
+                            } else {
+                                alert("Arazo bat egon da emaitzak gordetzerakoan")
+                            }
+                        }, 
+                        error: function(data){
+                            alert("Ezin izan da zerbitzariarekin konektatu")
+                        },
+                        cache: false
+                    })
+                }
+            }, 
+            error: function(data){
+                alert("Ezin izan da zerbitzariarekin konektatu")
+            },
+            cache: false
+        })
+
+    }
+ });
+
 function emaitzak(){
     $("#content").html(`
         <form id='emaitzakF')>
@@ -157,6 +207,7 @@ function emaitzak(){
             <p>Zuzen erantzundako galdera kopurua: ${zuzen}</p>
             <p>Kontu VIP bat baduzu emaitzak gorde ditzazkezu zure eposta sartuz</p>
             <p>Eposta: <input type='text' id='eposta'></p>
+            <p id="vipAlert"></p>
             <p><input type='button' id='gordeemaitzak' value='Emaitzak gorde'></p>
         </form>
     `)
