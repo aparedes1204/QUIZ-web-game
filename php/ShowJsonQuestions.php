@@ -15,7 +15,7 @@
 
     <?php
 
-	echo '<div align="center" id = "galderak"> <table border="1"> <tr><th>Eposta</th> <th>Galdera</th> <th>Erantzun zuzena</th></tr>';
+	echo '<div align="center" id = "galderak"> <table border="1" style="margin-left:auto;margin-right:auto;"> <tr><th>Eposta</th> <th>Galdera</th> <th>Erantzun zuzena</th></tr>';
 
     $data = file_get_contents('../json/Questions.json');
     $array = json_decode($data);

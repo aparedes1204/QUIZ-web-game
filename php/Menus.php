@@ -30,7 +30,8 @@
   if(isset($_SESSION["eposta"])){
     $eposta = $_SESSION['eposta'];
     
-    echo "<span><a href='Layout.php'>Hasiera</a></span>";
+    echo "<span><a href='Layout.php'>Hasiera</a></span>
+    <span><a href='Play.php'>Jolastu</a></span>";
     
     if($_SESSION['erMota'] === "irakaslea"){
       echo "<span><a href = 'HandlingQuizesAjax.php'> Kudeatu galderak</a> <span>
@@ -46,6 +47,7 @@
     echo "<span><a href='Credits.php'>Kredituak</a></span>";
   } else {
     echo "<span><a href='Layout.php'>Hasiera</a></span>
+    <span><a href='Play.php'>Jolastu</a></span>
     <span><a href='Credits.php'>Kredituak</a></span>";
   }
     

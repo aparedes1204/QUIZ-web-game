@@ -1,11 +1,18 @@
 <?php
 
 // Datuak eskuratzeko konstanteak ...
+// DEFINE("_HOST_", "localhost");
+// DEFINE("_PORT_", "");
+// DEFINE("_USERNAME_", "aparedes009");
+// DEFINE("_DATABASE_", "db_aparedes009");
+// DEFINE("_PASSWORD_", "KkDMwMXZkVmchBXY");
+
 DEFINE("_HOST_", "localhost");
 DEFINE("_PORT_", "");
-DEFINE("_USERNAME_", "aparedes009");
-DEFINE("_DATABASE_", "db_aparedes009");
-DEFINE("_PASSWORD_", "KkDMwMXZkVmchBXY");
+DEFINE("_USERNAME_", "root");
+DEFINE("_DATABASE_", "quiz");
+DEFINE("_PASSWORD_", "");
+
 
 require_once 'database.php';
 $method = $_SERVER['REQUEST_METHOD'];
@@ -25,6 +32,39 @@ $resource = $_SERVER['REQUEST_URI'];
                 else {echo "<br><br><b>SENTITZEN DUT ".$eposta." Ez da VIPa</b><br><img height=300px src=https://www.arttdinox.com/assets/web/wrong.gif>";
                 break;}
 			}
+            if(isset($_GET['rank'])){
+                $sql = "SELECT eposta, eZuzenak, eOkerrak FROM vip";
+                $data = Database::GauzatuKontsulta($cnx, $sql);
+                $players = array_filter($data, function($k){
+                    return $k['eZuzenak'] != 0 || $k['eOkerrak'] != 0;
+                });
+                $rankingsize = $_GET['rank'] > strval(count($players)) ? count($players) : 10;
+                $rates = array_map(function($item) {
+                    if($item["eZuzenak"] != 0 || $item["eOkerrak"] != 0){
+                        return $item["eZuzenak"]/($item["eZuzenak"] + $item["eOkerrak"]);
+                    } else {
+                        return -1;
+                    }
+                }, $data);
+                $topplayers = array();
+                for($i=0; $i<$rankingsize;$i++){
+                    $maxindex = array_keys($rates, max($rates))[0];
+                    $topplayers [] = $data[$maxindex];
+                    $topplayers[$i]["rate"] = $rates[$maxindex];
+                    unset($rates[$maxindex]);
+                    unset($data[$maxindex]);
+                }
+                echo '<table border="1" style="margin-left:auto;margin-right:auto;"> <tr><th>Eposta</th> <th>Erantzun zuzenak</th> <th>Erantzun okerrak</th> <th>Asmatze indizea</th></tr>';
+                foreach($topplayers as $player){
+                    echo '<tr> <td>'.$player['eposta'].'</td> <td>'.$player['eZuzenak'].'</td><td>'.$player['eOkerrak'].'</td> <td>'.$player['rate'].'</td></tr>';
+                }
+                echo '</table> </div>';
+                // print_r($players);
+                // echo"<br>";
+                // print_r($rates);
+                // echo"<br>";
+                // print_r($topplayers);
+            }
 			else
 			{
                 $sql = "SELECT * FROM vip";
