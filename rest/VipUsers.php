@@ -1,17 +1,17 @@
 <?php
 
-// Datuak eskuratzeko konstanteak ...
-// DEFINE("_HOST_", "localhost");
-// DEFINE("_PORT_", "");
-// DEFINE("_USERNAME_", "aparedes009");
-// DEFINE("_DATABASE_", "db_aparedes009");
-// DEFINE("_PASSWORD_", "KkDMwMXZkVmchBXY");
-
+//Datuak eskuratzeko konstanteak ...
 DEFINE("_HOST_", "localhost");
 DEFINE("_PORT_", "");
-DEFINE("_USERNAME_", "root");
-DEFINE("_DATABASE_", "quiz");
-DEFINE("_PASSWORD_", "");
+DEFINE("_USERNAME_", "aparedes009");
+DEFINE("_DATABASE_", "db_aparedes009");
+DEFINE("_PASSWORD_", "KkDMwMXZkVmchBXY");
+
+// DEFINE("_HOST_", "localhost");
+// DEFINE("_PORT_", "");
+// DEFINE("_USERNAME_", "root");
+// DEFINE("_DATABASE_", "quiz");
+// DEFINE("_PASSWORD_", "");
 
 
 require_once 'database.php';
