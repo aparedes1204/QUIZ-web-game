@@ -10,9 +10,23 @@
         }
     ?>
   <?php include '../html/Head.html'?>
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '943970049544335',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v12.0'
+    });
+  };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
   
 </head>
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v12.0&appId=943970049544335&autoLogAppEvents=1" nonce="yJ4cWl3h"></script>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div id = "log-in" name = "log-in">
@@ -24,6 +38,9 @@
             <input type="button" id="hustu" name="hustu" value="Hustu" onclick="reset()">
             <input type="submit" id="submit" name="submit" value="Kautotu">
         </form>
+
+        <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
 
 
     </div>
