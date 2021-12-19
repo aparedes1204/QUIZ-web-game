@@ -20,15 +20,15 @@
     });
   };
 </script>
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-<script language="JavaScript" src="../js/FbLogin.js" type="text/javascript"></script>
+
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
   
 </head>
 <body>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v12.0&appId=943970049544335&autoLogAppEvents=1" nonce="yJ4cWl3h"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/eu_ES/sdk.js#xfbml=1&version=v12.0&appId=943970049544335&autoLogAppEvents=1" nonce="tJY2N7EU"></script>
+<div id="fb-root"></div>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div id = "log-in" name = "log-in">
@@ -41,12 +41,7 @@
             <input type="submit" id="submit" name="submit" value="Kautotu">
         </form>
 
-        <button id="fbLogin">Facebook-ekin kautotu</button>
-        <button id="fbLLogout">logout</button>
-        <!-- <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
-
-
-
+        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
     </div>
 
     <?php
