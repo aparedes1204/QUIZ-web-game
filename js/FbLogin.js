@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     $("#fbLogout").click(function(){
         FB.logout(function(response) {
-            // Person is now logged out
+            
          });
     })
 })
@@ -49,7 +49,7 @@ function statusChangeCallback(response) {
   function testAPI() {                    
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ' + response.email);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
