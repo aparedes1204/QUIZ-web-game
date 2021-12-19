@@ -19,8 +19,6 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') { 
       testAPI();  
     } else {                               
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this webpage.';
     }
   }
 
