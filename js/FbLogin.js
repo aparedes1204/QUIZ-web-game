@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     $("#fbLogin").click(function(){
         FB.login(function(response){
-           conlose.log(response)
+           conlose.log(response.email)
           },{scope: 'email'});
     })
 
