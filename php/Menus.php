@@ -20,6 +20,7 @@
       } else {
         echo "<span class='right'><a href='SignUp.php'>Erregistratu</a></span>
         <span class='right'><a href='LogIn.php'>Login</a></span>
+        <span class='right'><a href='github_login.php'>Login Github-ekin</a></span>
         <span class ='right'><a href='AskForPasswordRecovery.php'>Pasahitza berreskuratu</a></span>";
       }
   ?>

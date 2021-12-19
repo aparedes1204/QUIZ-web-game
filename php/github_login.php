@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
 function signup_github()
 {
 	$client_id = '0a7982ebd304ebdff71f';
-	$redirect_url = 'https://sw.ikasten.io/~aparedes009/WS/php/LogIn.php';
+	$redirect_url = 'https://sw.ikasten.io/~aparedes009/WS/php/Layout.php';
 	
 	//login request
 	if($_SERVER['REQUEST_METHOD'] == 'GET')
