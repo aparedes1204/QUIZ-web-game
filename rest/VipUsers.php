@@ -78,6 +78,10 @@ $resource = $_SERVER['REQUEST_URI'];
                 $eposta = $_POST["eposta"];
                 $eZuzenak = $_POST["eZuzenak"];
                 $eOkerrak = $_POST["eOkerrak"];
+                if($eZuzenak == 0 && $eOkerrak == 0){
+                    echo "success";
+                    exit();
+                }
                 $sql1 = "UPDATE vip SET eZuzenak = eZuzenak + {$eZuzenak} WHERE vip.eposta = '{$eposta}'";
                 $sql2 = "UPDATE vip SET eOkerrak = eOkerrak + {$eOkerrak} WHERE vip.eposta = '{$eposta}'";
                 $data1 = Database::GauzatuEzKontsulta($cnx, $sql1);
