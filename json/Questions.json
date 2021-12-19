@@ -1,3 +1,77 @@
 {
-"assessmentItems":[]
+"assessmentItems":[{
+"subject":"Garapen Iraunkorra",
+"author":"aitorpz1204@gmail.com",
+"itemBody":{
+"p":"\u00bfCu\u00e1ntos objetivos hay?"
+},
+"correctResponse":{
+"response":"17"
+},
+"incorrectResponse":{
+"response":["15",
+"16",
+"18"]
+}
+},
+{
+"subject":"Garapen Iraunkorra",
+"author":"aitorpz1204@gmail.com",
+"itemBody":{
+"p":"\u00bfCu\u00e1l es el fin de los objetivos de desarrollo sostenible?"
+},
+"correctResponse":{
+"response":"Que los pa\u00edses y sus sociedades emprendan un nuevo camino con el que mejorar la vida de todos, sin dejar a nadie atr\u00e1s"
+},
+"incorrectResponse":{
+"response":["Reducir la desigualdad en los pa\u00edses y entre ellos.",
+"Garantizar una vida sana y promover el bienestar de todos a todas las edades.",
+"Lograr que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles."]
+}
+},
+{
+"subject":"Garapen Iraunkorra",
+"author":"aitorpz1204@gmail.com",
+"itemBody":{
+"p":"\u00bfCu\u00e1l de los siguientes NO es un objetivo de desarrollo sostenible de la ONU?"
+},
+"correctResponse":{
+"response":"Pobreza infantil"
+},
+"incorrectResponse":{
+"response":["Educaci\u00f3n de calidad",
+"Industria, innovaci\u00f3n e infraestructuras",
+"Igualdad de g\u00e9nero"]
+}
+},
+{
+"subject":"Garapen Iraunkorra",
+"author":"aitorpz1204@gmail.com",
+"itemBody":{
+"p":"\u00bfPara cu\u00e1ndo deber\u00edamos cumplir con al menos una de las metas de cada objetivo?"
+},
+"correctResponse":{
+"response":"2030"
+},
+"incorrectResponse":{
+"response":["2025",
+"2035",
+"No hay una fecha establecida"]
+}
+},
+{
+"subject":"Garapen Iraunkorra",
+"author":"aitorpz1204@gmail.com",
+"itemBody":{
+"p":"\u00bfCu\u00e1ntos pa\u00edses aprobaron los objetivos en 2015?"
+},
+"correctResponse":{
+"response":"193"
+},
+"incorrectResponse":{
+"response":["213",
+"26",
+"89"]
+}
+}]
 }
