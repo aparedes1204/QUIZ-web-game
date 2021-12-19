@@ -12,16 +12,6 @@
   <?php include '../html/Head.html'?>
   <script src="../js/jquery-3.4.1.min.js"></script>
   <script src="../js/FbLogin.js"></script>
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '943970049544335',
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v12.0'
-    });
-  };
-</script>
 
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
@@ -45,7 +35,7 @@
 
         <button id="fbLogin">Facebook-ekin kautotu</button>
         <button id="fbLogout">Logout</button>
-        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();"></div>
     </div>
 
     <?php
