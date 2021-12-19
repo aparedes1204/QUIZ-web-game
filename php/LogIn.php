@@ -19,7 +19,7 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/eu_ES/sdk.js#xfbml=1&version=v12.0&appId=943970049544335&autoLogAppEvents=1" nonce="tJY2N7EU"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/eu_ES/sdk.js#xfbml=1&version=v12.0&appId=943970049544335&autoLogAppEvents=1" nonce="LVkgckW6"></script>
 <div id="fb-root"></div>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
@@ -35,7 +35,7 @@
 
         <button id="fbLogin">Facebook-ekin kautotu</button>
         <button id="fbLogout">Logout</button>
-        <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();"></div>
+        <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="false" scope="public_profile,email" onlogin="checkLoginState();"></div>
     </div>
 
     <?php
