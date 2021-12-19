@@ -17,11 +17,11 @@
         $blob = addslashes(file_get_contents($image));
 
       $eposta = trim($_POST['eposta']);
-      $galdera = trim($_POST['galdera']);
-      $e_zuzena = trim($_POST['e_zuzena']);
-      $e_okerra1 = trim($_POST['e_okerra1']);
-      $e_okerra2 = trim($_POST['e_okerra2']);
-      $e_okerra3 = trim($_POST['e_okerra3']);
+      $galdera = trim(preg_replace('/\n+/', ' ', $_POST['galdera']));
+      $e_zuzena = trim(preg_replace('/\n+/', ' ', $_POST['e_zuzena']));
+      $e_okerra1 = trim(preg_replace('/\n+/', ' ', $_POST['e_okerra1']));
+      $e_okerra2 = trim(preg_replace('/\n+/', ' ', $_POST['e_okerra2']));
+      $e_okerra3 = trim(preg_replace('/\n+/', ' ', $_POST['e_okerra3']));
       if (isset($_POST['zailtasuna'])) {
         $zailtasuna = $_POST['zailtasuna'];
       }
