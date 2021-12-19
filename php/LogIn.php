@@ -10,6 +10,8 @@
         }
     ?>
   <?php include '../html/Head.html'?>
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/FbLogin.js"></script>
   <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -41,6 +43,8 @@
             <input type="submit" id="submit" name="submit" value="Kautotu">
         </form>
 
+        <button id="fbLogin">Facebook-ekin kautotu</button>
+        <button id="fbLogout">Logout</button>
         <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
     </div>
 
