@@ -17,11 +17,11 @@
         $blob = addslashes(file_get_contents($image));
 
       $eposta = trim($_POST['eposta']);
-      $galdera = trim(str_replace (array("\r\n", "\n", "\r"), ' ', $_POST['galdera']));
-      $e_zuzena = trim(str_replace (array("\r\n", "\n", "\r"), ' ', $_POST['e_zuzena']));
-      $e_okerra1 = trim(str_replace (array("\r\n", "\n", "\r"), ' ', $_POST['e_okerra1']));
-      $e_okerra2 = trim(str_replace (array("\r\n", "\n", "\r"), ' ', $_POST['e_okerra2']));
-      $e_okerra3 = trim(str_replace (array("\r\n", "\n", "\r"), ' ', $_POST['e_okerra3']));
+      $galdera = trim(preg_replace (array("/\r\n/", "/\n/", "/\r/"), ' ', $_POST['galdera']));
+      $e_zuzena = trim(preg_replace (array("/\r\n/", "/\n/", "/\r/"), ' ', $_POST['e_zuzena']));
+      $e_okerra1 = trim(preg_replace (array("/\r\n/", "/\n/", "/\r/"), ' ', $_POST['e_okerra1']));
+      $e_okerra2 = trim(preg_replace (array("/\r\n/", "/\n/", "/\r/"), ' ', $_POST['e_okerra2']));
+      $e_okerra3 = trim(preg_replace (array("/\r\n/", "/\n/", "/\r/"), ' ', $_POST['e_okerra3']));
       if (isset($_POST['zailtasuna'])) {
         $zailtasuna = $_POST['zailtasuna'];
       }
