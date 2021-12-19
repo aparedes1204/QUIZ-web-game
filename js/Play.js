@@ -104,8 +104,13 @@ $(document).on('click', '#erantzun', function(e){
 });
 
 $(document).on('click', '#like', function(e){
+
     var data = {}
-    data['like'] = ""
+    if ($("#dislike").prop("disabled")){
+        data['like'] = "2"
+    } else {
+        data['like'] = "1"
+    }
     data['id'] = id_list[index-1]
     $.ajax({
         url: '../php/GalderaBaloratu.php',
@@ -126,7 +131,11 @@ $(document).on('click', '#like', function(e){
 
 $(document).on('click', '#dislike', function(e){
     var data = {}
-    data['dislike'] = ""
+    if ($("#like").prop("disabled")){
+        data['dislike'] = "2"
+    } else {
+        data['dislike'] = "1"
+    }
     data['id'] = id_list[index-1]
     $.ajax({
         url: '../php/GalderaBaloratu.php',

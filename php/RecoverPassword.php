@@ -35,14 +35,12 @@
     if(isset($_POST["validate"])){
       if($_POST["code"] == $_SESSION["code"]){
         $response = [
-          'correct' => true,
-	  'code' => $_SESSION["code"]
+          'correct' => true
         ];
-	session_destroy();
+	    session_destroy();
       } else {
         $response = [
-          'correct' => false,
-	  'code' => $_SESSION['code']
+          'correct' => false
         ];
       }
       echo json_encode($response);

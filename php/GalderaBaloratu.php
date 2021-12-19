@@ -5,7 +5,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         include "DbConfig.php";
         $esteka = mysqli_connect($zerbitzaria,$erabiltzailea,$gakoa,$db)
           or die ("errorea DB-ra konektatzean");
-        mysqli_query($esteka, "UPDATE Questions SET balorazioa = balorazioa+1 WHERE Questions.id = '{$id}'");
+        if ($_POST["like"] === "1"){
+          mysqli_query($esteka, "UPDATE Questions SET balorazioa = balorazioa+1 WHERE Questions.id = '{$id}'");
+        } else {
+          mysqli_query($esteka, "UPDATE Questions SET balorazioa = balorazioa+2 WHERE Questions.id = '{$id}'");
+        }
         $emaitza = mysqli_query($esteka, "SELECT balorazioa FROM Questions WHERE Questions.id = '{$id}'");
         $balorazioa = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)['balorazioa'];
         echo ("Balorazioa: $balorazioa");
@@ -17,7 +21,11 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         include "DbConfig.php";
         $esteka = mysqli_connect($zerbitzaria,$erabiltzailea,$gakoa,$db)
           or die ("errorea DB-ra konektatzean");
-        mysqli_query($esteka, "UPDATE Questions SET balorazioa = balorazioa-1 WHERE Questions.id = '{$id}'");
+        if ($_POST["dislike"] === "1"){
+          mysqli_query($esteka, "UPDATE Questions SET balorazioa = balorazioa-1 WHERE Questions.id = '{$id}'");
+        } else {
+          mysqli_query($esteka, "UPDATE Questions SET balorazioa = balorazioa-2 WHERE Questions.id = '{$id}'");
+        }
         $emaitza = mysqli_query($esteka, "SELECT balorazioa FROM Questions WHERE Questions.id = '{$id}'");
         $balorazioa = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)['balorazioa'];
         echo ("Balorazioa: $balorazioa");

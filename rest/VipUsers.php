@@ -59,11 +59,6 @@ $resource = $_SERVER['REQUEST_URI'];
                     echo '<tr> <td>'.$player['eposta'].'</td> <td>'.$player['eZuzenak'].'</td><td>'.$player['eOkerrak'].'</td> <td>'.$player['rate'].'</td></tr>';
                 }
                 echo '</table> </div>';
-                // print_r($players);
-                // echo"<br>";
-                // print_r($rates);
-                // echo"<br>";
-                // print_r($topplayers);
             }
 			else
 			{
