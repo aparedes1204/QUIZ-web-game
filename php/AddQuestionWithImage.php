@@ -40,12 +40,12 @@
       }
 
 
-      if (!filter_var($eposta,
-          FILTER_VALIDATE_REGEXP, 
-          array('options' => array('regexp' => '/^[a-zA-Z]+([0-9]{3}@ikasle\.ehu|(\.[a-zA-Z]+){0,1}[a-zA-Z]+@ehu)\.(eus|es)$/')) )
-          ) {
-            die('Eposta okerra');
-          }
+      // if (!filter_var($eposta,
+      //     FILTER_VALIDATE_REGEXP, 
+      //     array('options' => array('regexp' => '/^[a-zA-Z]+([0-9]{3}@ikasle\.ehu|(\.[a-zA-Z]+){0,1}[a-zA-Z]+@ehu)\.(eus|es)$/')) )
+      //     ) {
+      //       die('Eposta okerra');
+      //     }
       
       if (!filter_var($galdera,
           FILTER_VALIDATE_REGEXP, 

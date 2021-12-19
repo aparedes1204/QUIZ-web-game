@@ -14,7 +14,7 @@
 	      $ema = mysqli_query($link,"SELECT argazkia FROM Users WHERE Users.eposta = '{$eposta}'");
 	      $row=mysqli_fetch_array($ema, MYSQLI_ASSOC);
         echo "Erabiltzailea: $eposta<p><span class='right'><a id=logout href=''>Logout</a></span>";
-	      if($row['argazkia']!=NULL){
+	      if(isset($row['argazkia']) && $row['argazkia'] != NULL){
         	echo '<td> <img src="data:image/jpg;charset=utf8;base64,'.base64_encode($row['argazkia']).'"/ height=100>';
         }
       } else {

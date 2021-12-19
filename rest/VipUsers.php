@@ -58,7 +58,7 @@ $resource = $_SERVER['REQUEST_URI'];
                 foreach($topplayers as $player){
                     echo '<tr> <td>'.$player['eposta'].'</td> <td>'.$player['eZuzenak'].'</td><td>'.$player['eOkerrak'].'</td> <td>'.$player['rate'].'</td></tr>';
                 }
-                echo '</table> </div>';
+                echo '</table>';
             }
 			else
 			{
